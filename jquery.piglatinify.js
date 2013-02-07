@@ -11,9 +11,9 @@
 			return textArray.join(" ");
 		};
 	
-		return this.each( function( i, el ) {
+		return this.each( function( index, element ) {
 			var node,
-				tw = document.createTreeWalker( el, NodeFilter.SHOW_TEXT );
+				tw = document.createTreeWalker( element, NodeFilter.SHOW_TEXT );
 			while ( tw.nextNode() ) {
 				node = tw.currentNode;
 				node.nodeValue = convertWord( node.nodeValue );
