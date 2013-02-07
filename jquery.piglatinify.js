@@ -8,8 +8,7 @@
 				var firstLetter = textArray[index].charAt(0);
 				textArray[index] = textArray[index].substring(1) + firstLetter + 'ay';
 			} );
-			var newText = textArray.join(" ");
-			return newText;
+			return textArray.join(" ");
 		};
 	
 		return this.each( function( i, el ) {
