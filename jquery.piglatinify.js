@@ -1,7 +1,7 @@
 ( function ( $ ) {
 
 	$.fn.piglatinify = function() {
-	
+
 		convertWord = function( node ) {
 			var textArray = node.split(" ");
 			$( textArray ).each( function( index ) {
@@ -19,5 +19,7 @@
 				node.nodeValue = convertWord( node.nodeValue );
 			}
 		} );
+
 	};
+
 }( jQuery ) );
