@@ -2,7 +2,7 @@
 
 	$.fn.piglatinify = function() {
 
-		convertWord = function( node ) {
+		convertWords = function( node ) {
 			var textArray = node.split(' ');
 			$( textArray ).each( function( index ) {
 				// Make sure word is actually a word
@@ -19,7 +19,7 @@
 				tw = document.createTreeWalker( element, NodeFilter.SHOW_TEXT );
 			while ( tw.nextNode() ) {
 				node = tw.currentNode;
-				node.nodeValue = convertWord( node.nodeValue );
+				node.nodeValue = convertWords( node.nodeValue );
 			}
 		} );
 
