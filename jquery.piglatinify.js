@@ -1,18 +1,17 @@
 ( function ( $ ) {
 
 	$.fn.piglatinify = function() {
-		var punctuation = ['.', '!', '?', ';', ':', '\'', '"', ','];
 
 		convertWord = function( node ) {
-			var textArray = node.split(" ");
+			var textArray = node.split(' ');
 			$( textArray ).each( function( index ) {
-				// Make sure word isn't empty or just punctuation
-				if ( textArray[index].length > 0 && $.inArray( textArray[index], punctuation ) === -1 ) {
-					var firstLetter = textArray[index].charAt(0);
-					textArray[index] = textArray[index].substring(1) + firstLetter + 'ay';
+				// Make sure word is actually a word
+				if ( textArray[index].length > 0 && textArray[index].match( /\w+/ ) ) {
+					// Convert word to piglatin word
+					textArray[index] = textArray[index].replace(/([^aeiou]*)([aeiou]\w*)/, '$2$1ay');
 				}
 			} );
-			return textArray.join(" ");
+			return textArray.join(' ');
 		};
 
 		return this.each( function( index, element ) {
